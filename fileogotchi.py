@@ -25,9 +25,11 @@ else:
 for folder in [FEED_DIR, TOILET_DIR]:
     if not os.path.exists(folder): 
         os.makedirs(folder)
-
-for folder in [FEED_DIR, TOILET_DIR]:
-    if not os.path.exists(folder): os.makedirs(folder)
+        if folder == FEED_DIR:
+            startup_file = os.path.join(FEED_DIR, "foryou.txt")
+            if not os.path.exists(startup_file):
+                with open(startup_file, "w") as f:
+                    f.write("heres your very own first fileogatchi, take good care of it!")
 
 poopTime = 600000
 randomEventTime = 483200
